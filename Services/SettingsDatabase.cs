@@ -4,10 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore.Sqlite;
+using IT_ORG_SQLite_RGR_2022.Services;
 using IT_ORG_SQLite_RGR_2022.Database;
+using IT_ORG_SQLite_RGR_2022.Database.Models;
+using IT_ORG_SQLite_RGR_2022.Controllers;
+using IT_ORG_SQLite_RGR_2022.Views;
 using IT_ORG_SQLite_RGR_2022.Services.Interfaces;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.Json;
 
 namespace IT_ORG_SQLite_RGR_2022.Services
 {
