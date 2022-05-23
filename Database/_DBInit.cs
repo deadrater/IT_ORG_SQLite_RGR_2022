@@ -31,15 +31,22 @@ namespace IT_ORG_SQLite_RGR_2022.Database
                     new User
                     {
                         Id=1,
-                        UserName = "admin",
-                        Password = "admin",
+                        UserName = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
+                        Password = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
                         Role = "admin",
                     },
                     new User
                     {
                         Id=2,
-                        UserName = "user",
-                        Password = "user",
+                        UserName = "0a041b9462caa4a31bac3567e0b6e6fd9100787db2ab433d96f6d178cabfce90",
+                        Password = "0a041b9462caa4a31bac3567e0b6e6fd9100787db2ab433d96f6d178cabfce90",
+                        Role = "user",
+                    },
+                    new User
+                    {
+                        Id=3,
+                        UserName = "6025d18fe48abd45168528f18a82e265dd98d421a7084aa09f61b341703901a3",
+                        Password = "6025d18fe48abd45168528f18a82e265dd98d421a7084aa09f61b341703901a3",
                         Role = "user",
                     }
                 };
@@ -48,7 +55,7 @@ namespace IT_ORG_SQLite_RGR_2022.Database
                 _context.SaveChanges();
             }
 
-            /*if (!_context.Goods.Any())
+           /* if (!_context.Goods.Any())
             {
                 var items = new Good[]
                 {
