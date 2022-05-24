@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using IT_ORG_SQLite_RGR_2022.Database.Models;
+using IT_ORG_SQLite_RGR_2022.Services;
 
 namespace IT_ORG_SQLite_RGR_2022.Database
 {
     public class _ContextDb : DbContext
     {
+        CustomExceptions ex = new CustomExceptions();
+
         public DbSet<User> Users { get; set; }
         /*public DbSet<Customer> Customers { get; set; }
         public DbSet<Good> Goods { get; set; }
@@ -20,14 +23,28 @@ namespace IT_ORG_SQLite_RGR_2022.Database
 
         public _ContextDb(DbContextOptions<_ContextDb> options) : base(options)
         {
-            //Проверка существования БД
-            Database.EnsureCreated();
+            try
+            {
+                //Проверка существования БД
+                Database.EnsureCreated();
+            }
+            catch(Exception e)
+            {
+                ex.ThrowNewException(e);
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //Уникализация поля UserName
-            modelBuilder.Entity<User>().HasAlternateKey(u => u.UserName);
+            try
+            {
+                //Уникализация поля UserName
+                modelBuilder.Entity<User>().HasAlternateKey(u => u.UserName);
+            }
+            catch(Exception e)
+            {
+                ex.ThrowNewException(e);
+            }
         }
     }
 }
