@@ -13,31 +13,43 @@ using IT_ORG_SQLite_RGR_2022.Views;
 using IT_ORG_SQLite_RGR_2022.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
+using IT_ORG_SQLite_RGR_2022.Services;
 
 namespace IT_ORG_SQLite_RGR_2022.Services
 {
     public class SettingsDatabase : ISettingsDatabase
     {
+        CustomExceptions exc = new CustomExceptions();
+
         public void Dispose()
         {
         }
 
         // Объект настройки БД
         public DbContextOptions<_ContextDb> GetDbContextOptions()
-        {
-            var builder = new ConfigurationBuilder();
-            // установка пути к текущему каталогу
-            builder.SetBasePath(Directory.GetCurrentDirectory());
-            // получаем конфигурацию из файла appsettings.json
-            builder.AddJsonFile("Config\\appsettings.json");
-            // создаем конфигурацию
-            var config = builder.Build();
-            // получаем строку подключения
-            string connectionString = config.GetConnectionString("DefaultConnection");
+        {            
+            try
+            {
+                var builder = new ConfigurationBuilder();
+                // установка пути к текущему каталогу
+                builder.SetBasePath(Directory.GetCurrentDirectory());
+                // получаем конфигурацию из файла appsettings.json
+                builder.AddJsonFile("Config\\appsettings.json");
+                // создаем конфигурацию
+                var config = builder.Build();
+                // получаем строку подключения
+                string connectionString = config.GetConnectionString("DefaultConnection");
 
-            var optionsBuilder = new DbContextOptionsBuilder<_ContextDb>();
-            var options = optionsBuilder.UseSqlite(connectionString).Options;
-            return options;
+                var optionsBuilder = new DbContextOptionsBuilder<_ContextDb>();
+                var options = optionsBuilder.UseSqlite(connectionString).Options;
+                return options;
+
+            }
+            catch(Exception ex)
+            {
+                exc.ThrowNewException(ex);
+            }
+            return null;
         }
 
 
@@ -73,8 +85,9 @@ namespace IT_ORG_SQLite_RGR_2022.Services
                     result = true;
                 }
             }
-            catch
+            catch(Exception ex)
             {
+                exc.ThrowNewException(ex);
                 return false;
             }
 
@@ -83,17 +96,25 @@ namespace IT_ORG_SQLite_RGR_2022.Services
 
         public string GetDbPathTofile()
         {
-            var builder = new ConfigurationBuilder();
-            // установка пути к текущему каталогу
-            builder.SetBasePath(Directory.GetCurrentDirectory());
-            // получаем конфигурацию из файла appsettings.json
-            builder.AddJsonFile("Config\\appsettings.json");
-            // создаем конфигурацию
-            var config = builder.Build();
-            // получаем строку подключения
-            string connectionString = config.GetConnectionString("DefaultConnection");
-            //MessageBox.Show(connectionString);
-            return connectionString;
+            try
+            {
+                var builder = new ConfigurationBuilder();
+                // установка пути к текущему каталогу
+                builder.SetBasePath(Directory.GetCurrentDirectory());
+                // получаем конфигурацию из файла appsettings.json
+                builder.AddJsonFile("Config\\appsettings.json");
+                // создаем конфигурацию
+                var config = builder.Build();
+                // получаем строку подключения
+                string connectionString = config.GetConnectionString("DefaultConnection");
+                //MessageBox.Show(connectionString);
+                return connectionString;
+            }
+            catch(Exception ex)
+            {
+                exc.ThrowNewException(ex);
+            }
+            return null;
         }
     }
 }

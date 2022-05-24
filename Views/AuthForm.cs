@@ -35,18 +35,15 @@ namespace IT_ORG_SQLite_RGR_2022.Views
                 {
                     if (passBox.Text != String.Empty)
                     {
-                        User myUser = authController.AuthToApp(userBox.Text, ComputeSha256Hash(passBox.Text));
+                        User myUser = authController.AuthToApp(userBox.Text, passBox.Text);
                         if (myUser != null)
                         {
-                            myUser.Password = crySer.ComputeSha256Hash(passBox.Text);
+                            myUser.Password = passBox.Text;
                             this.Hide();
                             MainWindow mainWindow = new MainWindow(myUser, this);
                             mainWindow.Show();
                         }
-                        else { MessageBox.Show("Username/Password incorrect!", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            userBox.Text = ComputeSha256Hash(userBox.Text);
-                            passBox.Text = ComputeSha256Hash(passBox.Text);
-                        }
+                        else MessageBox.Show("Username/Password incorrect!", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else MessageBox.Show("Password is empty!","Input Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
