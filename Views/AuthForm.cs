@@ -20,8 +20,9 @@ namespace IT_ORG_SQLite_RGR_2022.Views
     {
         AuthController authController;
         readonly EncryptionService crySer;
+        CustomExceptions ex = new CustomExceptions();
 
-        public AuthForm()
+        public AuthForm(bool _result = true)
         {
             authController = new AuthController();
             InitializeComponent();
@@ -35,47 +36,77 @@ namespace IT_ORG_SQLite_RGR_2022.Views
                 {
                     if (passBox.Text != String.Empty)
                     {
-                        User myUser = authController.AuthToApp(userBox.Text, passBox.Text);
+                        User myUser = authController.AuthToApp(ComputeSha256Hash(userBox.Text), ComputeSha256Hash(passBox.Text));
                         if (myUser != null)
                         {
                             myUser.Password = passBox.Text;
                             this.Hide();
                             MainWindow mainWindow = new MainWindow(myUser, this);
                             mainWindow.Show();
+                            userBox.Text = String.Empty;
+                            passBox.Text = String.Empty;
+                            userBox.Select();
                         }
-                        else MessageBox.Show("Username/Password incorrect!", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                        {
+                            ex.ThrowNewException("LOGIN ERROR","Username/Password incorrect!");
+                        }
                     }
-                    else MessageBox.Show("Password is empty!","Input Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                    {
+                        ex.ThrowNewException("INPUT ERROR","The password can not be empty!");
+                    }
                 }
-                else MessageBox.Show("Username is empty!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    ex.ThrowNewException("INPUT ERROR", "The username can not be empty!");
+                }
             }
-            catch(Exception ex)
+            catch(Exception _e)
             {
-                throw new Exception(ex.Message);
+                throw _e;
             }
         }
 
         public string ComputeSha256Hash(string s)
         {
-            // Create a SHA256   
-            using (SHA256 sha256Hash = SHA256.Create())
+            try
             {
-                // ComputeHash - returns byte array  
-                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(s));
-
-                // Convert byte array to a string   
-                StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < bytes.Length; i++)
+                // Create a SHA256   
+                using (SHA256 sha256Hash = SHA256.Create())
                 {
-                    builder.Append(bytes[i].ToString("x2"));
+                    // ComputeHash - returns byte array  
+                    byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(s));
+
+                    // Convert byte array to a string   
+                    StringBuilder builder = new StringBuilder();
+                    for (int i = 0; i < bytes.Length; i++)
+                    {
+                        builder.Append(bytes[i].ToString("x2"));
+                    }
+                    return builder.ToString();
                 }
-                return builder.ToString();
+            }
+            catch(Exception e)
+            {
+                //ex.ThrowNewException(e);
+                return null;
             }
         }
 
         private void AuthForm_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void minimizeBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

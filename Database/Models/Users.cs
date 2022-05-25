@@ -30,5 +30,9 @@ namespace IT_ORG_SQLite_RGR_2022.Database.Models
         [MaxLength(50)]
         [Required]
         public string Role { get; set; }
+
+        [Column("img", Order = 4)]
+        [MaxLength(256)]
+        public string ImgUrl { get; set; }
     }
 }

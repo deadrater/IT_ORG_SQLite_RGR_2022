@@ -34,6 +34,7 @@ namespace IT_ORG_SQLite_RGR_2022.Database
                         UserName = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
                         Password = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
                         Role = "admin",
+                        ImgUrl = "https://sun1.userapi.com/sun1-54/s/v1/ig2/Am3vQrLyOwlyKQMdkRVLzo5_SC3U67W1i7yqhlBWLFdjGeqFIbW-9Wtz5Tti08Bm_-2JL0g7EAMkXSnJ-IxdAPFC.jpg?size=200x200&quality=95&crop=187,170,953,953&ava=1",
                     },
                     new User
                     {
@@ -41,6 +42,7 @@ namespace IT_ORG_SQLite_RGR_2022.Database
                         UserName = "0a041b9462caa4a31bac3567e0b6e6fd9100787db2ab433d96f6d178cabfce90",
                         Password = "0a041b9462caa4a31bac3567e0b6e6fd9100787db2ab433d96f6d178cabfce90",
                         Role = "user",
+                        ImgUrl = "https://sun1.userapi.com/sun1-54/s/v1/ig2/UQgi6Bjfn4yoKocJz084Znw9WJmS_o8mEdPm6w6Uk8KEvL9Y0Kitp8C97Cn9RAn6pGEADRyhC2MOW9HbnYv_7ENN.jpg?size=200x200&quality=95&crop=69,441,602,602&ava=1",
                     },
                     new User
                     {
@@ -48,6 +50,7 @@ namespace IT_ORG_SQLite_RGR_2022.Database
                         UserName = "6025d18fe48abd45168528f18a82e265dd98d421a7084aa09f61b341703901a3",
                         Password = "6025d18fe48abd45168528f18a82e265dd98d421a7084aa09f61b341703901a3",
                         Role = "user",
+                        ImgUrl = "https://sun1.userapi.com/sun1-89/s/v1/ig1/zgYn8vovV0jAiYhvM49t0qxgRER-DwocNfXa64zMk1OXPo08r9s3kayooaisJQIiExuCjv3v.jpg?size=200x200&quality=96&crop=174,0,470,470&ava=1",
                     }
                 };
 

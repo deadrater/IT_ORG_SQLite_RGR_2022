@@ -30,7 +30,7 @@ namespace IT_ORG_SQLite_RGR_2022.Database
             }
             catch(Exception e)
             {
-                ex.ThrowNewException(e);
+                ex.ThrowNewException("DATABASE ERROR", "There is some kind of error with the database...");
             }
         }
 
@@ -43,7 +43,7 @@ namespace IT_ORG_SQLite_RGR_2022.Database
             }
             catch(Exception e)
             {
-                ex.ThrowNewException(e);
+                ex.ThrowNewException("DATABASE ERROR","There is error with creating database...");
             }
         }
     }
