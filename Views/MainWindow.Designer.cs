@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.exceptionTitleBox = new System.Windows.Forms.TextBox();
+            this.mainWindowTitleBox = new System.Windows.Forms.TextBox();
             this.minimizeBtn = new System.Windows.Forms.Label();
             this.closeBtn = new System.Windows.Forms.Label();
             this.menuGroupBox = new System.Windows.Forms.GroupBox();
@@ -58,7 +58,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.groupBox1.Controls.Add(this.exceptionTitleBox);
+            this.groupBox1.Controls.Add(this.mainWindowTitleBox);
             this.groupBox1.Controls.Add(this.minimizeBtn);
             this.groupBox1.Controls.Add(this.closeBtn);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -69,20 +69,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // exceptionTitleBox
+            // mainWindowTitleBox
             // 
-            this.exceptionTitleBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.exceptionTitleBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.exceptionTitleBox.Enabled = false;
-            this.exceptionTitleBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(19)))), ((int)(((byte)(83)))));
-            this.exceptionTitleBox.HideSelection = false;
-            this.exceptionTitleBox.Location = new System.Drawing.Point(22, 45);
-            this.exceptionTitleBox.Name = "exceptionTitleBox";
-            this.exceptionTitleBox.ReadOnly = true;
-            this.exceptionTitleBox.Size = new System.Drawing.Size(1329, 31);
-            this.exceptionTitleBox.TabIndex = 8;
-            this.exceptionTitleBox.TabStop = false;
-            this.exceptionTitleBox.Text = "IT ORG";
+            this.mainWindowTitleBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
+            this.mainWindowTitleBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mainWindowTitleBox.Enabled = false;
+            this.mainWindowTitleBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(19)))), ((int)(((byte)(83)))));
+            this.mainWindowTitleBox.HideSelection = false;
+            this.mainWindowTitleBox.Location = new System.Drawing.Point(22, 45);
+            this.mainWindowTitleBox.Name = "mainWindowTitleBox";
+            this.mainWindowTitleBox.ReadOnly = true;
+            this.mainWindowTitleBox.Size = new System.Drawing.Size(1329, 31);
+            this.mainWindowTitleBox.TabIndex = 8;
+            this.mainWindowTitleBox.TabStop = false;
+            this.mainWindowTitleBox.Text = "IT ORG";
             // 
             // minimizeBtn
             // 
@@ -196,6 +196,7 @@
             this.changePassBtn.TabIndex = 10;
             this.changePassBtn.Text = "CHANGE PASS";
             this.changePassBtn.UseVisualStyleBackColor = true;
+            this.changePassBtn.Click += new System.EventHandler(this.changePassBtn_Click);
             // 
             // backupBtn
             // 
@@ -327,7 +328,7 @@
         private GroupBox groupBox1;
         private Label minimizeBtn;
         private Label closeBtn;
-        private TextBox exceptionTitleBox;
+        private TextBox mainWindowTitleBox;
         private GroupBox menuGroupBox;
         private GroupBox profileGroupBox;
         private TextBox roleBox;

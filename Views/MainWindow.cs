@@ -132,5 +132,11 @@ namespace IT_ORG_SQLite_RGR_2022
                     break;
             }
         }
+
+        private void changePassBtn_Click(object sender, EventArgs e)
+        {
+            NewPassForm newPassForm = new NewPassForm(mUser, local);
+            newPassForm.Show();
+        }
     }
 }

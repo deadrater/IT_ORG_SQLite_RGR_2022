@@ -35,8 +35,8 @@ namespace IT_ORG_SQLite_RGR_2022.Views
                 if (userBox.Text != String.Empty)
                 {
                     if (passBox.Text != String.Empty)
-                    {
-                        User myUser = authController.AuthToApp(ComputeSha256Hash(userBox.Text), ComputeSha256Hash(passBox.Text));
+                    { 
+                        User myUser = authController.AuthToApp(userBox.Text, ComputeSha256Hash(passBox.Text));
                         if (myUser != null)
                         {
                             myUser.Password = passBox.Text;
