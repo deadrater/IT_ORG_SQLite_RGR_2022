@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -36,6 +37,14 @@
             this.closeBtn = new System.Windows.Forms.Label();
             this.exceptionTitleBox = new System.Windows.Forms.TextBox();
             this.productsDataGrid = new System.Windows.Forms.DataGridView();
+            this.imgBox = new System.Windows.Forms.PictureBox();
+            this.searchBox = new System.Windows.Forms.TextBox();
+            this.commonRadioBtn = new System.Windows.Forms.RadioButton();
+            this.nameRadioBtn = new System.Windows.Forms.RadioButton();
+            this.priceRadioBtn = new System.Windows.Forms.RadioButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.addBtn = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.idCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,10 +52,10 @@
             this.saveCol = new System.Windows.Forms.DataGridViewButtonColumn();
             this.deleteCol = new System.Windows.Forms.DataGridViewButtonColumn();
             this.imgUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imgBox = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -87,7 +96,7 @@
             this.exceptionTitleBox.Size = new System.Drawing.Size(371, 31);
             this.exceptionTitleBox.TabIndex = 9;
             this.exceptionTitleBox.TabStop = false;
-            this.exceptionTitleBox.Text = "IT ORG PRODUCTS";
+            this.exceptionTitleBox.Text = "IT ORG УСЛУГИ";
             this.exceptionTitleBox.TextChanged += new System.EventHandler(this.exceptionTitleBox_TextChanged);
             // 
             // productsDataGrid
@@ -144,6 +153,97 @@
             this.productsDataGrid.TabIndex = 12;
             this.productsDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productsDataGrid_CellContentClick);
             // 
+            // imgBox
+            // 
+            this.imgBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imgBox.ImageLocation = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Code.org_logo.svg/1200p" +
+    "x-Code.org_logo.svg.png";
+            this.imgBox.Location = new System.Drawing.Point(1159, 75);
+            this.imgBox.Name = "imgBox";
+            this.imgBox.Size = new System.Drawing.Size(229, 217);
+            this.imgBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgBox.TabIndex = 13;
+            this.imgBox.TabStop = false;
+            // 
+            // searchBox
+            // 
+            this.searchBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(19)))), ((int)(((byte)(83)))));
+            this.searchBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchBox.Location = new System.Drawing.Point(28, 639);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(1116, 31);
+            this.searchBox.TabIndex = 14;
+            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
+            // 
+            // commonRadioBtn
+            // 
+            this.commonRadioBtn.AutoSize = true;
+            this.commonRadioBtn.Checked = true;
+            this.commonRadioBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(19)))), ((int)(((byte)(83)))));
+            this.commonRadioBtn.Location = new System.Drawing.Point(42, 83);
+            this.commonRadioBtn.Name = "commonRadioBtn";
+            this.commonRadioBtn.Size = new System.Drawing.Size(115, 35);
+            this.commonRadioBtn.TabIndex = 15;
+            this.commonRadioBtn.TabStop = true;
+            this.commonRadioBtn.Text = "Общий";
+            this.commonRadioBtn.UseVisualStyleBackColor = true;
+            this.commonRadioBtn.CheckedChanged += new System.EventHandler(this.commonRadioBtn_CheckedChanged);
+            // 
+            // nameRadioBtn
+            // 
+            this.nameRadioBtn.AutoSize = true;
+            this.nameRadioBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(19)))), ((int)(((byte)(83)))));
+            this.nameRadioBtn.Location = new System.Drawing.Point(42, 142);
+            this.nameRadioBtn.Name = "nameRadioBtn";
+            this.nameRadioBtn.Size = new System.Drawing.Size(145, 35);
+            this.nameRadioBtn.TabIndex = 16;
+            this.nameRadioBtn.Text = "По имени";
+            this.nameRadioBtn.UseVisualStyleBackColor = true;
+            this.nameRadioBtn.CheckedChanged += new System.EventHandler(this.nameRadioBtn_CheckedChanged);
+            // 
+            // priceRadioBtn
+            // 
+            this.priceRadioBtn.AutoSize = true;
+            this.priceRadioBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(19)))), ((int)(((byte)(83)))));
+            this.priceRadioBtn.Location = new System.Drawing.Point(42, 202);
+            this.priceRadioBtn.Name = "priceRadioBtn";
+            this.priceRadioBtn.Size = new System.Drawing.Size(126, 35);
+            this.priceRadioBtn.TabIndex = 17;
+            this.priceRadioBtn.Text = "По цене";
+            this.priceRadioBtn.UseVisualStyleBackColor = true;
+            this.priceRadioBtn.CheckedChanged += new System.EventHandler(this.priceRadioBtn_CheckedChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.nameRadioBtn);
+            this.groupBox2.Controls.Add(this.priceRadioBtn);
+            this.groupBox2.Controls.Add(this.commonRadioBtn);
+            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(19)))), ((int)(((byte)(83)))));
+            this.groupBox2.Location = new System.Drawing.Point(1159, 298);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(229, 320);
+            this.groupBox2.TabIndex = 18;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Поиск";
+            // 
+            // addBtn
+            // 
+            this.addBtn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.addBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(19)))), ((int)(((byte)(83)))));
+            this.addBtn.Location = new System.Drawing.Point(1159, 639);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(229, 31);
+            this.addBtn.TabIndex = 19;
+            this.addBtn.Text = "Добавить запись";
+            this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 5000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // idCol
             // 
             this.idCol.HeaderText = "ID";
@@ -162,7 +262,7 @@
             // 
             // typeCol
             // 
-            this.typeCol.HeaderText = "Тип продукта";
+            this.typeCol.HeaderText = "Тип услуги";
             this.typeCol.MinimumWidth = 6;
             this.typeCol.Name = "typeCol";
             this.typeCol.Width = 250;
@@ -196,22 +296,15 @@
             this.imgUrl.Visible = false;
             this.imgUrl.Width = 125;
             // 
-            // imgBox
-            // 
-            this.imgBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imgBox.Location = new System.Drawing.Point(1159, 75);
-            this.imgBox.Name = "imgBox";
-            this.imgBox.Size = new System.Drawing.Size(229, 217);
-            this.imgBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgBox.TabIndex = 13;
-            this.imgBox.TabStop = false;
-            // 
             // ProductsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(12)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(1400, 698);
+            this.Controls.Add(this.addBtn);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.searchBox);
             this.Controls.Add(this.imgBox);
             this.Controls.Add(this.productsDataGrid);
             this.Controls.Add(this.groupBox1);
@@ -226,7 +319,10 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -237,6 +333,13 @@
         private Label closeBtn;
         private DataGridView productsDataGrid;
         private PictureBox imgBox;
+        private TextBox searchBox;
+        private RadioButton commonRadioBtn;
+        private RadioButton nameRadioBtn;
+        private RadioButton priceRadioBtn;
+        private GroupBox groupBox2;
+        private Button addBtn;
+        private System.Windows.Forms.Timer timer1;
         private DataGridViewTextBoxColumn idCol;
         private DataGridViewTextBoxColumn nameCol;
         private DataGridViewTextBoxColumn typeCol;

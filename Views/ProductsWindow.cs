@@ -70,13 +70,14 @@ namespace IT_ORG_SQLite_RGR_2022.Views
         private void ProductsWindow_Load(object sender, EventArgs e)
         {
             UpdateForm();
+            searchBox.Select();
         }
 
         private void productsDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             action = true;
 
-            if (e.ColumnIndex == 8)
+            if (e.ColumnIndex == 4)
             {
                 Product obj = new Product
                 {
@@ -108,7 +109,7 @@ namespace IT_ORG_SQLite_RGR_2022.Views
                     ImgUrl = productsDataGrid[6, e.RowIndex].Value.ToString(),
                 };
 
-                if (e.ColumnIndex == 9)
+                if (e.ColumnIndex == 5)
                 {
                     if (controller.DeleteSingleProduct(obj))
                     {
@@ -133,6 +134,55 @@ namespace IT_ORG_SQLite_RGR_2022.Views
             }
 
 
+        }
+
+        private void commonRadioBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            searchBox.Select();
+        }
+
+        private void nameRadioBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            searchBox.Select();
+        }
+
+        private void priceRadioBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            searchBox.Select();
+        }
+
+        private void searchBox_TextChanged(object sender, EventArgs e)
+        {
+            ProductsController controller = new ProductsController();
+            if (commonRadioBtn.Checked)
+            {
+                UpdateForm(searchBox.Text, "common");
+            }
+            else
+            {
+                if (nameRadioBtn.Checked)
+                {
+                    UpdateForm(searchBox.Text, "name");
+                }
+                else
+                {
+                    if (priceRadioBtn.Checked)
+                    {
+                        UpdateForm(searchBox.Text, "price");
+                    }
+                }
+            }
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            AddProductForm addProductForm = new AddProductForm(mUser, this);
+            addProductForm.Show();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            UpdateForm();
         }
     }
 }

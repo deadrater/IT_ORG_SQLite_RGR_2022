@@ -98,6 +98,8 @@ namespace IT_ORG_SQLite_RGR_2022
             removeImgBtn.Text = "”ƒ¿À»“‹  ¿–“»Õ ”";
             removeImgBtn.Font = font;
             backupBtn.Text = "¡› ¿œ";
+            productsBtn.Text = "œ–Œƒ” “€";
+            servicesBtn.Text = "”—À”√»";
             changePassBtn.Text = "—Ã≈Õ»“‹ œ¿–ŒÀ‹";
             changePassBtn.Font = font;
             local = "RU";
@@ -118,6 +120,8 @@ namespace IT_ORG_SQLite_RGR_2022
             removeImgBtn.Text = "REMOVE IMG";
             removeImgBtn.Font = font;
             backupBtn.Text = "BACKUP";
+            productsBtn.Text = "PRODUCTS";
+            servicesBtn.Text = "SERVICES";
             changePassBtn.Text = "CHANGE PASS";
             changePassBtn.Font = font;
             local = "EN";
@@ -196,6 +200,11 @@ namespace IT_ORG_SQLite_RGR_2022
         {
             ProductsWindow productsWindow = new ProductsWindow(mUser);
             productsWindow.Show();
+        }
+
+        private void servicesBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
