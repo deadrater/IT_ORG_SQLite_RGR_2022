@@ -49,10 +49,17 @@
             this.userLbl = new System.Windows.Forms.Label();
             this.avatarBox = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.productsBtn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.servicesBtn = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            this.menuGroupBox.SuspendLayout();
             this.profileGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.localImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -110,6 +117,10 @@
             // 
             // menuGroupBox
             // 
+            this.menuGroupBox.Controls.Add(this.pictureBox2);
+            this.menuGroupBox.Controls.Add(this.servicesBtn);
+            this.menuGroupBox.Controls.Add(this.pictureBox1);
+            this.menuGroupBox.Controls.Add(this.productsBtn);
             this.menuGroupBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(19)))), ((int)(((byte)(83)))));
             this.menuGroupBox.Location = new System.Drawing.Point(12, 63);
             this.menuGroupBox.Name = "menuGroupBox";
@@ -158,7 +169,7 @@
             this.roleBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.roleBox.Enabled = false;
             this.roleBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.roleBox.Location = new System.Drawing.Point(198, 564);
+            this.roleBox.Location = new System.Drawing.Point(198, 567);
             this.roleBox.Name = "roleBox";
             this.roleBox.ReadOnly = true;
             this.roleBox.Size = new System.Drawing.Size(414, 31);
@@ -170,7 +181,7 @@
             this.passBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.passBox.Enabled = false;
             this.passBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.passBox.Location = new System.Drawing.Point(198, 516);
+            this.passBox.Location = new System.Drawing.Point(198, 519);
             this.passBox.Name = "passBox";
             this.passBox.Size = new System.Drawing.Size(414, 31);
             this.passBox.TabIndex = 12;
@@ -181,7 +192,7 @@
             this.userBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.userBox.Enabled = false;
             this.userBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(9)))), ((int)(((byte)(43)))));
-            this.userBox.Location = new System.Drawing.Point(198, 470);
+            this.userBox.Location = new System.Drawing.Point(198, 473);
             this.userBox.Name = "userBox";
             this.userBox.ReadOnly = true;
             this.userBox.Size = new System.Drawing.Size(414, 31);
@@ -286,6 +297,47 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // productsBtn
+            // 
+            this.productsBtn.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.productsBtn.Location = new System.Drawing.Point(135, 49);
+            this.productsBtn.Name = "productsBtn";
+            this.productsBtn.Size = new System.Drawing.Size(570, 63);
+            this.productsBtn.TabIndex = 5;
+            this.productsBtn.Text = "PRODUCTS";
+            this.productsBtn.UseVisualStyleBackColor = true;
+            this.productsBtn.Click += new System.EventHandler(this.productsBtn_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ImageLocation = "https://i.ibb.co/qYTyNXy/box.png";
+            this.pictureBox1.Location = new System.Drawing.Point(32, 49);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(82, 63);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
+            // servicesBtn
+            // 
+            this.servicesBtn.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.servicesBtn.Location = new System.Drawing.Point(135, 137);
+            this.servicesBtn.Name = "servicesBtn";
+            this.servicesBtn.Size = new System.Drawing.Size(570, 63);
+            this.servicesBtn.TabIndex = 16;
+            this.servicesBtn.Text = "SERVICES";
+            this.servicesBtn.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.ImageLocation = "https://i.ibb.co/5BLTCPK/customer-service.png";
+            this.pictureBox2.Location = new System.Drawing.Point(32, 137);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(82, 63);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 17;
+            this.pictureBox2.TabStop = false;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 31F);
@@ -305,10 +357,13 @@
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.menuGroupBox.ResumeLayout(false);
             this.profileGroupBox.ResumeLayout(false);
             this.profileGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.localImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -335,5 +390,9 @@
         private System.Windows.Forms.Timer timer1;
         private Button removeImgBtn;
         private PictureBox localImg;
+        private PictureBox pictureBox2;
+        private Button servicesBtn;
+        private PictureBox pictureBox1;
+        private Button productsBtn;
     }
 }

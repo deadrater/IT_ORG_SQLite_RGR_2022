@@ -191,5 +191,11 @@ namespace IT_ORG_SQLite_RGR_2022
                 ex.ThrowNewException("BACKUP ERROR","DataBase backup is not created!");
             }
         }
+
+        private void productsBtn_Click(object sender, EventArgs e)
+        {
+            ProductsWindow productsWindow = new ProductsWindow(mUser);
+            productsWindow.Show();
+        }
     }
 }
