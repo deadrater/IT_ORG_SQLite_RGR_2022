@@ -27,6 +27,7 @@ namespace IT_ORG_SQLite_RGR_2022
     {
         User mUser = null;
         AuthForm aForm = null;
+        AuthController authCTRL = null;
         CustomExceptions ex = new CustomExceptions();
         public string local = "EN";
 
@@ -34,6 +35,7 @@ namespace IT_ORG_SQLite_RGR_2022
         public MainWindow(User _user, AuthForm _form)
         {
             mUser = _user;
+            authCTRL = new AuthController();
             aForm = _form;
             InitializeComponent();
         }
@@ -64,18 +66,27 @@ namespace IT_ORG_SQLite_RGR_2022
             if (mUser.Role != "admin")
             {
                 removeImgBtn.Enabled = false;
-                addUserBtn.Enabled = false;
-                deleteUserBtn.Enabled = false;
                 backupBtn.Enabled = false;
                 LocalRus();
             }
-            avatarBox.Load(mUser.ImgUrl);
+            try
+            {
+                avatarBox.Load(mUser.ImgUrl);
+            }
+            catch
+            {
+                avatarBox.Load("https://avatars.mds.yandex.net/i?id=9ad356afdd27291e58a9e909bc2cb0d3-5877629-images-thumbs&ref=rim&n=33&w=188&h=188");
+            }
+            userBox.Text = mUser.UserName;
+            passBox.Text = mUser.Password;
+            roleBox.Text = mUser.Role;
+            timer1.Start();
         }
 
         public void LocalRus()
         {
             Font font = new Font("Segoe UI", 10, FontStyle.Bold);
-            localBtn.Text = "EN";
+            localImg.Load("https://i.ibb.co/9hLvdr7/russia.png");
             menuGroupBox.Text = "ÃÂÌ˛";
             profileGroupBox.Text = "œÓÙËÎ¸";
             userLbl.Text = "œÓÎ¸ÁÓ‚‡ÚÂÎ¸:";
@@ -86,10 +97,6 @@ namespace IT_ORG_SQLite_RGR_2022
             changeImgBtn.Font = font;
             removeImgBtn.Text = "”ƒ¿À»“‹  ¿–“»Õ ”";
             removeImgBtn.Font = font;
-            addUserBtn.Text = "ƒŒ¡¿¬»“‹ œŒÀ‹«Œ¬¿“≈Àﬂ";
-            addUserBtn.Font = font;
-            deleteUserBtn.Text = "”ƒ¿À»“‹ œŒÀ‹«Œ¬¿“≈Àﬂ";
-            deleteUserBtn.Font = font;
             backupBtn.Text = "¡› ¿œ";
             changePassBtn.Text = "—Ã≈Õ»“‹ œ¿–ŒÀ‹";
             changePassBtn.Font = font;
@@ -99,7 +106,7 @@ namespace IT_ORG_SQLite_RGR_2022
         public void LocalEng()
         {
             Font font = new Font("Segoe UI", 14, FontStyle.Bold);
-            localBtn.Text = "RU";
+            localImg.Load("https://i.ibb.co/5LKbj7m/united-states.png");
             menuGroupBox.Text = "Menu";
             profileGroupBox.Text = "Profile";
             userLbl.Text = "Username:";
@@ -110,10 +117,6 @@ namespace IT_ORG_SQLite_RGR_2022
             changeImgBtn.Font = font;
             removeImgBtn.Text = "REMOVE IMG";
             removeImgBtn.Font = font;
-            addUserBtn.Text = "ADD USER";
-            addUserBtn.Font = font;
-            deleteUserBtn.Text = "DELETE USER";
-            deleteUserBtn.Font = font;
             backupBtn.Text = "BACKUP";
             changePassBtn.Text = "CHANGE PASS";
             changePassBtn.Font = font;
@@ -122,7 +125,7 @@ namespace IT_ORG_SQLite_RGR_2022
 
         private void localBtn_Click(object sender, EventArgs e)
         {
-            switch (local)
+            switch (localImg.ImageLocation)
             {
                 case "RU":
                     LocalEng();
@@ -137,6 +140,56 @@ namespace IT_ORG_SQLite_RGR_2022
         {
             NewPassForm newPassForm = new NewPassForm(mUser, local);
             newPassForm.Show();
+        }
+
+        private void changeImgBtn_Click(object sender, EventArgs e)
+        {
+            ChangeImageForm changeImageForm = new ChangeImageForm(mUser, local);
+            changeImageForm.Show();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                avatarBox.Load(mUser.ImgUrl);
+            }
+            catch
+            {
+                avatarBox.Load("https://avatars.mds.yandex.net/i?id=9ad356afdd27291e58a9e909bc2cb0d3-5877629-images-thumbs&ref=rim&n=33&w=188&h=188");
+            }
+            userBox.Text = mUser.UserName;
+            passBox.Text = mUser.Password;
+            roleBox.Text = mUser.Role;
+        }
+
+        private void removeImgBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                    if (authCTRL.DeleteUserImage(mUser)) 
+                        ex.ThrowNewException("SUCCESS", $"User \"{mUser.UserName}\" image was deleted successfully...");                    
+                    else
+                        ex.ThrowNewException("DB WRITE ERROR", $"User \"{mUser.UserName}\" image was not deleted!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void backupBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SettingsDatabase settingsDatabase = new SettingsDatabase();
+                settingsDatabase.BackupSQLiteDbToDesktop();
+                ex.ThrowNewException("SUCCESS","DataBase backup created succsessfully...");
+            }
+            catch
+            {
+                ex.ThrowNewException("BACKUP ERROR","DataBase backup is not created!");
+            }
         }
     }
 }

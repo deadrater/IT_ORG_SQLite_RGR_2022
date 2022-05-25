@@ -23,10 +23,11 @@ namespace IT_ORG_SQLite_RGR_2022.Views
         CustomExceptions ex = new CustomExceptions();
         public string local = "EN";
 
-        public NewPassForm(User _user, string local)
+        public NewPassForm(User _user, string _local)
         {
             mUser = _user;
             authCTRL = new AuthController();
+            local = _local;
             InitializeComponent();
         }
 
@@ -48,7 +49,7 @@ namespace IT_ORG_SQLite_RGR_2022.Views
             changingPassTitleBox.Text = "CHANGING PASSWORD";
             oldPassLbl.Text = "Old password:";
             newPassLbl.Text = "New password:";
-            changingPassTitleBox.Text = "CHANGE PASSWORD";
+            changePassBtn.Text = "CHANGE PASSWORD";
             local = "EN";
         }
 
@@ -57,7 +58,7 @@ namespace IT_ORG_SQLite_RGR_2022.Views
             changingPassTitleBox.Text = "СМЕНА ПАРОЛЯ";
             oldPassLbl.Text = "Старый пароль:";
             newPassLbl.Text = "Новый пароль:";
-            changingPassTitleBox.Text = "СМЕНИТЬ ПАЛЛ";
+            changePassBtn.Text = "СМЕНИТЬ ПАРОЛЬ";
             local = "RU";
         }
 

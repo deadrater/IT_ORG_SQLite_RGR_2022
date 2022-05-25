@@ -28,20 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.mainWindowTitleBox = new System.Windows.Forms.TextBox();
             this.minimizeBtn = new System.Windows.Forms.Label();
             this.closeBtn = new System.Windows.Forms.Label();
             this.menuGroupBox = new System.Windows.Forms.GroupBox();
-            this.localBtn = new System.Windows.Forms.Button();
             this.profileGroupBox = new System.Windows.Forms.GroupBox();
+            this.localImg = new System.Windows.Forms.PictureBox();
             this.roleBox = new System.Windows.Forms.TextBox();
             this.passBox = new System.Windows.Forms.TextBox();
             this.userBox = new System.Windows.Forms.TextBox();
             this.changePassBtn = new System.Windows.Forms.Button();
             this.backupBtn = new System.Windows.Forms.Button();
-            this.deleteUserBtn = new System.Windows.Forms.Button();
-            this.addUserBtn = new System.Windows.Forms.Button();
             this.changeImgBtn = new System.Windows.Forms.Button();
             this.removeImgBtn = new System.Windows.Forms.Button();
             this.logOutBtn = new System.Windows.Forms.Button();
@@ -49,9 +48,10 @@
             this.passLbl = new System.Windows.Forms.Label();
             this.userLbl = new System.Windows.Forms.Label();
             this.avatarBox = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
-            this.menuGroupBox.SuspendLayout();
             this.profileGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.localImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,7 +110,6 @@
             // 
             // menuGroupBox
             // 
-            this.menuGroupBox.Controls.Add(this.localBtn);
             this.menuGroupBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(19)))), ((int)(((byte)(83)))));
             this.menuGroupBox.Location = new System.Drawing.Point(12, 63);
             this.menuGroupBox.Name = "menuGroupBox";
@@ -119,25 +118,14 @@
             this.menuGroupBox.TabStop = false;
             this.menuGroupBox.Text = "Menu";
             // 
-            // localBtn
-            // 
-            this.localBtn.Location = new System.Drawing.Point(673, 567);
-            this.localBtn.Name = "localBtn";
-            this.localBtn.Size = new System.Drawing.Size(59, 43);
-            this.localBtn.TabIndex = 14;
-            this.localBtn.Text = "RU";
-            this.localBtn.UseVisualStyleBackColor = true;
-            this.localBtn.Click += new System.EventHandler(this.localBtn_Click);
-            // 
             // profileGroupBox
             // 
+            this.profileGroupBox.Controls.Add(this.localImg);
             this.profileGroupBox.Controls.Add(this.roleBox);
             this.profileGroupBox.Controls.Add(this.passBox);
             this.profileGroupBox.Controls.Add(this.userBox);
             this.profileGroupBox.Controls.Add(this.changePassBtn);
             this.profileGroupBox.Controls.Add(this.backupBtn);
-            this.profileGroupBox.Controls.Add(this.deleteUserBtn);
-            this.profileGroupBox.Controls.Add(this.addUserBtn);
             this.profileGroupBox.Controls.Add(this.changeImgBtn);
             this.profileGroupBox.Controls.Add(this.removeImgBtn);
             this.profileGroupBox.Controls.Add(this.logOutBtn);
@@ -152,6 +140,17 @@
             this.profileGroupBox.TabIndex = 8;
             this.profileGroupBox.TabStop = false;
             this.profileGroupBox.Text = "Profile";
+            // 
+            // localImg
+            // 
+            this.localImg.ImageLocation = "https://i.ibb.co/9hLvdr7/russia.png";
+            this.localImg.Location = new System.Drawing.Point(581, 20);
+            this.localImg.Name = "localImg";
+            this.localImg.Size = new System.Drawing.Size(31, 32);
+            this.localImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.localImg.TabIndex = 14;
+            this.localImg.TabStop = false;
+            this.localImg.Click += new System.EventHandler(this.logOutBtn_Click);
             // 
             // roleBox
             // 
@@ -190,9 +189,9 @@
             // 
             // changePassBtn
             // 
-            this.changePassBtn.Location = new System.Drawing.Point(381, 368);
+            this.changePassBtn.Location = new System.Drawing.Point(381, 348);
             this.changePassBtn.Name = "changePassBtn";
-            this.changePassBtn.Size = new System.Drawing.Size(231, 43);
+            this.changePassBtn.Size = new System.Drawing.Size(231, 63);
             this.changePassBtn.TabIndex = 10;
             this.changePassBtn.Text = "CHANGE PASS";
             this.changePassBtn.UseVisualStyleBackColor = true;
@@ -200,57 +199,42 @@
             // 
             // backupBtn
             // 
-            this.backupBtn.Location = new System.Drawing.Point(381, 319);
+            this.backupBtn.Location = new System.Drawing.Point(381, 281);
             this.backupBtn.Name = "backupBtn";
-            this.backupBtn.Size = new System.Drawing.Size(231, 43);
+            this.backupBtn.Size = new System.Drawing.Size(231, 63);
             this.backupBtn.TabIndex = 9;
             this.backupBtn.Text = "BACKUP";
             this.backupBtn.UseVisualStyleBackColor = true;
-            // 
-            // deleteUserBtn
-            // 
-            this.deleteUserBtn.Location = new System.Drawing.Point(381, 270);
-            this.deleteUserBtn.Name = "deleteUserBtn";
-            this.deleteUserBtn.Size = new System.Drawing.Size(231, 43);
-            this.deleteUserBtn.TabIndex = 8;
-            this.deleteUserBtn.Text = "DELETE USER";
-            this.deleteUserBtn.UseVisualStyleBackColor = true;
-            // 
-            // addUserBtn
-            // 
-            this.addUserBtn.Location = new System.Drawing.Point(381, 221);
-            this.addUserBtn.Name = "addUserBtn";
-            this.addUserBtn.Size = new System.Drawing.Size(231, 43);
-            this.addUserBtn.TabIndex = 7;
-            this.addUserBtn.Text = "ADD USER";
-            this.addUserBtn.UseVisualStyleBackColor = true;
+            this.backupBtn.Click += new System.EventHandler(this.backupBtn_Click);
             // 
             // changeImgBtn
             // 
             this.changeImgBtn.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.changeImgBtn.Location = new System.Drawing.Point(381, 123);
+            this.changeImgBtn.Location = new System.Drawing.Point(381, 143);
             this.changeImgBtn.Name = "changeImgBtn";
-            this.changeImgBtn.Size = new System.Drawing.Size(231, 43);
+            this.changeImgBtn.Size = new System.Drawing.Size(231, 63);
             this.changeImgBtn.TabIndex = 6;
             this.changeImgBtn.Text = "CHANGE IMG";
             this.changeImgBtn.UseVisualStyleBackColor = true;
+            this.changeImgBtn.Click += new System.EventHandler(this.changeImgBtn_Click);
             // 
             // removeImgBtn
             // 
             this.removeImgBtn.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.removeImgBtn.Location = new System.Drawing.Point(381, 172);
+            this.removeImgBtn.Location = new System.Drawing.Point(381, 212);
             this.removeImgBtn.Name = "removeImgBtn";
-            this.removeImgBtn.Size = new System.Drawing.Size(231, 43);
+            this.removeImgBtn.Size = new System.Drawing.Size(231, 63);
             this.removeImgBtn.TabIndex = 5;
             this.removeImgBtn.Text = "REMOVE IMG";
             this.removeImgBtn.UseVisualStyleBackColor = true;
+            this.removeImgBtn.Click += new System.EventHandler(this.removeImgBtn_Click);
             // 
             // logOutBtn
             // 
             this.logOutBtn.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.logOutBtn.Location = new System.Drawing.Point(381, 74);
             this.logOutBtn.Name = "logOutBtn";
-            this.logOutBtn.Size = new System.Drawing.Size(231, 43);
+            this.logOutBtn.Size = new System.Drawing.Size(231, 63);
             this.logOutBtn.TabIndex = 4;
             this.logOutBtn.Text = "LOG-OUT";
             this.logOutBtn.UseVisualStyleBackColor = true;
@@ -296,6 +280,12 @@
             this.avatarBox.TabIndex = 0;
             this.avatarBox.TabStop = false;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 31F);
@@ -315,9 +305,9 @@
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.menuGroupBox.ResumeLayout(false);
             this.profileGroupBox.ResumeLayout(false);
             this.profileGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.localImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).EndInit();
             this.ResumeLayout(false);
 
@@ -336,15 +326,14 @@
         private TextBox userBox;
         private Button changePassBtn;
         private Button backupBtn;
-        private Button deleteUserBtn;
-        private Button addUserBtn;
         private Button changeImgBtn;
-        private Button removeImgBtn;
         private Button logOutBtn;
         private Label roleLbl;
         private Label passLbl;
         private Label userLbl;
         private PictureBox avatarBox;
-        private Button localBtn;
+        private System.Windows.Forms.Timer timer1;
+        private Button removeImgBtn;
+        private PictureBox localImg;
     }
 }

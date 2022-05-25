@@ -58,6 +58,55 @@ namespace IT_ORG_SQLite_RGR_2022.Database
                 _context.SaveChanges();
             }
 
+            if (!_context.Products.Any())
+            {
+                var items = new Product[]
+                {
+                    new Product
+                    {
+                        Id = 1,
+                        Name = "Антивирус \"Kaspersky\"",
+                        Type = "Системное ПО",
+                        Price = 990.00,
+                        ImgUrl = "https://o-pencil.ru/upload/iblock/db8/db8a90525b9c52bb6d8be90e6c440fec.jpg"
+                    },
+                    new Product
+                    {
+                        Id = 1,
+                        Name = "Антивирус \"Kaspersky Internet Security\"",
+                        Type = "Системное ПО",
+                        Price = 1350.00,
+                        ImgUrl = "https://avatars.mds.yandex.net/i?id=1c6d759a416755d91ccf8fa53bde4e9a-5476469-images-thumbs&n=13&exp=1"
+                    },
+                    new Product
+                    {
+                        Id = 1,
+                        Name = "Антивирус \"Kaspersky\"",
+                        Type = "Системное ПО",
+                        Price = 1499.25,
+                        ImgUrl = "https://o-pencil.ru/upload/iblock/db8/db8a90525b9c52bb6d8be90e6c440fec.jpg"
+                    },
+                    new Product
+                    {
+                        Id = 2,
+                        Name = "Microsoft Office 365 Personal",
+                        Type = "Прикладное ПО",
+                        Price = 8890.00,
+                        ImgUrl = "https://www.tfk.ru/upload/iblock/2fc/podpiska_office_365_personal_32_64_qq2_00004.jpg"
+                    },
+                    new Product
+                    {
+                        Id = 3,
+                        Name = "Adobe Photoshop Elements 2022",
+                        Type = "Прикладное ПО",
+                        Price = 8602.00,
+                        ImgUrl = "https://www.windows-soft.ru/cache_image/kupit-adobe-photoshop-elements-2022-po-dostupnoy-tsene.jpg"
+                    }
+                };
+                _context.Products.AddRange(items);
+                _context.SaveChanges();
+            }
+
            /* if (!_context.Goods.Any())
             {
                 var items = new Good[]
