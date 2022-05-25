@@ -11,17 +11,10 @@ namespace IT_ORG_SQLite_RGR_2022.Services
         string ExName { get; set; }
         string ExDescription { get; set; }
 
-        public void ThrowCustomException(string ExName, string ExDescription)
+        public void ThrowNewException(string _source, string _helplink)
         {
-            MessageBox.Show(ExDescription,ExName,MessageBoxButtons.OK,MessageBoxIcon.Error);
-        }
-
-        public void ThrowNewException(Exception ex)
-        {
-            ExName = $"ERROR! {ex.Source}";
-            ExDescription = ex.Message;
-
-            ThrowCustomException(ExName, ExDescription);
+            FCustomException customException = new FCustomException(_source, _helplink);
+            customException.Show();
         }
     }
 }

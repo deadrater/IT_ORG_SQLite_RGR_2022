@@ -19,7 +19,7 @@ namespace IT_ORG_SQLite_RGR_2022.Services
 {
     public class SettingsDatabase : ISettingsDatabase
     {
-        CustomExceptions exc = new CustomExceptions();
+        CustomExceptions ex = new CustomExceptions();
 
         public void Dispose()
         {
@@ -45,9 +45,9 @@ namespace IT_ORG_SQLite_RGR_2022.Services
                 return options;
 
             }
-            catch(Exception ex)
+            catch(Exception e)
             {
-                exc.ThrowNewException(ex);
+                ex.ThrowNewException("BD SETTINGS ERROR","The path in config file is unreachible or config file is not exist...");
             }
             return null;
         }
@@ -85,9 +85,9 @@ namespace IT_ORG_SQLite_RGR_2022.Services
                     result = true;
                 }
             }
-            catch(Exception ex)
+            catch(Exception e)
             {
-                exc.ThrowNewException(ex);
+                ex.ThrowNewException("BACKUP ERROR","There is a kind of error on backup...");
                 return false;
             }
 
@@ -110,9 +110,9 @@ namespace IT_ORG_SQLite_RGR_2022.Services
                 //MessageBox.Show(connectionString);
                 return connectionString;
             }
-            catch(Exception ex)
+            catch(Exception e)
             {
-                exc.ThrowNewException(ex);
+                ex.ThrowNewException("DB PATH ERROR","Path of database is unreachible or database is not exist...");
             }
             return null;
         }
