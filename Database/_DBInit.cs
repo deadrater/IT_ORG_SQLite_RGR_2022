@@ -72,7 +72,7 @@ namespace IT_ORG_SQLite_RGR_2022.Database
                     },
                     new Product
                     {
-                        Id = 1,
+                        Id = 2,
                         Name = "Антивирус \"Kaspersky Internet Security\"",
                         Type = "Системное ПО",
                         Price = 1350.00,
@@ -80,15 +80,15 @@ namespace IT_ORG_SQLite_RGR_2022.Database
                     },
                     new Product
                     {
-                        Id = 1,
-                        Name = "Антивирус \"Kaspersky\"",
+                        Id = 3,
+                        Name = "Антивирус \"Kaspersky Total Security\"",
                         Type = "Системное ПО",
                         Price = 1499.25,
                         ImgUrl = "https://o-pencil.ru/upload/iblock/db8/db8a90525b9c52bb6d8be90e6c440fec.jpg"
                     },
                     new Product
                     {
-                        Id = 2,
+                        Id = 4,
                         Name = "Microsoft Office 365 Personal",
                         Type = "Прикладное ПО",
                         Price = 8890.00,
@@ -96,12 +96,36 @@ namespace IT_ORG_SQLite_RGR_2022.Database
                     },
                     new Product
                     {
-                        Id = 3,
-                        Name = "Adobe Photoshop Elements 2022",
+                        Id = 5,
+                        Name = "Adobe Photoshop CC",
                         Type = "Прикладное ПО",
-                        Price = 8602.00,
+                        Price = 28454.00,
+                        ImgUrl = "https://protabletpc.ru/wp-content/uploads/2021/02/2000001558_Licencia-Adobe-Photoshop-CC-1_Ao.jpg"
+                    },
+                    new Product
+                    {
+                        Id = 6,
+                        Name = "Adobe Premiere Pro CC",
+                        Type = "Прикладное ПО",
+                        Price = 28454.00,
+                        ImgUrl = "https://ae04.alicdn.com/kf/Uf75645a36af84f6aa058c9390c07f6b46.png"
+                    },
+                    new Product
+                    {
+                        Id = 7,
+                        Name = "Adobe Illustrator CC",
+                        Type = "Прикладное ПО",
+                        Price = 28454.00,
                         ImgUrl = "https://www.windows-soft.ru/cache_image/kupit-adobe-photoshop-elements-2022-po-dostupnoy-tsene.jpg"
-                    }
+                    },
+                    new Product
+                    {
+                        Id = 8,
+                        Name = "Adobe InDesign CC",
+                        Type = "Прикладное ПО",
+                        Price = 28454.00,
+                        ImgUrl = "https://stocksoft.ru/wa-data/public/shop/products/20/10/1020/images/1766/1766.1000.jpg"
+                    },
                 };
                 _context.Products.AddRange(items);
                 _context.SaveChanges();

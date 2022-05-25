@@ -150,7 +150,7 @@
             this.localImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.localImg.TabIndex = 14;
             this.localImg.TabStop = false;
-            this.localImg.Click += new System.EventHandler(this.logOutBtn_Click);
+            this.localImg.Click += new System.EventHandler(this.localBtn_Click);
             // 
             // roleBox
             // 

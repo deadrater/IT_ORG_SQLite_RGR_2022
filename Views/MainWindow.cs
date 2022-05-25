@@ -86,7 +86,7 @@ namespace IT_ORG_SQLite_RGR_2022
         public void LocalRus()
         {
             Font font = new Font("Segoe UI", 10, FontStyle.Bold);
-            localImg.Load("https://i.ibb.co/9hLvdr7/russia.png");
+            localImg.Load("https://i.ibb.co/5LKbj7m/united-states.png");
             menuGroupBox.Text = "Меню";
             profileGroupBox.Text = "Профиль";
             userLbl.Text = "Пользователь:";
@@ -106,7 +106,7 @@ namespace IT_ORG_SQLite_RGR_2022
         public void LocalEng()
         {
             Font font = new Font("Segoe UI", 14, FontStyle.Bold);
-            localImg.Load("https://i.ibb.co/5LKbj7m/united-states.png");
+            localImg.Load("https://i.ibb.co/9hLvdr7/russia.png");
             menuGroupBox.Text = "Menu";
             profileGroupBox.Text = "Profile";
             userLbl.Text = "Username:";
@@ -127,11 +127,11 @@ namespace IT_ORG_SQLite_RGR_2022
         {
             switch (localImg.ImageLocation)
             {
-                case "RU":
-                    LocalEng();
-                    break;
-                case "EN":
+                case "https://i.ibb.co/9hLvdr7/russia.png":
                     LocalRus();
+                    break;
+                case "https://i.ibb.co/5LKbj7m/united-states.png":
+                    LocalEng();
                     break;
             }
         }
