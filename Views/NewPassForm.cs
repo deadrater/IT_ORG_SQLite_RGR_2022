@@ -32,7 +32,33 @@ namespace IT_ORG_SQLite_RGR_2022.Views
 
         private void NewPassForm_Load(object sender, EventArgs e)
         {
-            
+            switch (local)
+            {
+                case "EN":
+                    LocalEng();
+                    break;
+                case "RU":
+                    LocalRus();
+                    break;
+            }
+        }
+
+        public void LocalEng()
+        {
+            changingPassTitleBox.Text = "CHANGING PASSWORD";
+            oldPassLbl.Text = "Old password:";
+            newPassLbl.Text = "New password:";
+            changingPassTitleBox.Text = "CHANGE PASSWORD";
+            local = "EN";
+        }
+
+        public void LocalRus()
+        {
+            changingPassTitleBox.Text = "СМЕНА ПАРОЛЯ";
+            oldPassLbl.Text = "Старый пароль:";
+            newPassLbl.Text = "Новый пароль:";
+            changingPassTitleBox.Text = "СМЕНИТЬ ПАЛЛ";
+            local = "RU";
         }
 
         public string ComputeSha256Hash(string s)
