@@ -69,6 +69,7 @@ namespace IT_ORG_SQLite_RGR_2022
                 backupBtn.Enabled = false;
                 LocalRus();
             }
+            avatarBox.Load(mUser.ImgUrl);
         }
 
         public void LocalRus()
